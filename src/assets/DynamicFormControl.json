@@ -13,7 +13,7 @@
         "Label":"Gender",
         "Type":"select",
         "Value":["Male","Female"],
-        "Required":false,
+        "Required":true,
         "minLength":null,
         "maxLength":null
     },

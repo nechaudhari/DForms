@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="headings">Registration Form</h1>
   {{registrationForm.value  | json}}
-  <form class="form" [formGroup]="registrationForm">
+  <form class="form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div *ngFor="let control of dynamicFormarray">
       <div class="form-group">
         
@@ -11,26 +11,25 @@
             <ng-template #user>
                 <input type="{{ control.Type }}" class="form-control" [formControlName]="control.ID" />
                 <div *ngIf="registrationForm.get(control.ID)?.dirty || registrationForm.get(control.ID)?.touched">
-                  <small class="danger" *ngIf="!registrationForm.get(control.ID)?.valid">{{control.Label}} is required</small>
+                  <small class="text-danger" *ngIf="!registrationForm.get(control.ID)?.valid">UserName is required</small>
                 </div>
             </ng-template>
             
-            <select *ngIf="control.Type == 'select'; else user" [formControlName]="control.ID" >
-                <option value="">Select Gender</option>
-                <option *ngFor="let gender of control.Value" >{{ gender }}</option>
-                <div *ngIf="registrationForm.get(control.ID)?.invalid || registrationForm.get(control.ID)?.touched">
-                  <small class="text-danger" *ngIf="!registrationForm.get(control.ID)?.valid">Please select Gender</small>
-                </div>
-            </select>   
+            <select *ngIf="control.Type === 'select'; else user" [formControlName]="control.ID">
+              <option value="">Select Gender</option>
+              <option *ngFor="let gender of control.Value" [value]="gender">{{ gender }}</option>
+            </select>
+            
+            <div *ngIf="registrationForm.get(control.ID)?.touched || registrationForm.get(control.ID)?.dirty">
+              <small class="text-danger" *ngIf="registrationForm.get(control.ID)?.errors?.['required']">
+                Please select a gender.
+              </small>
+            </div>   
         </ng-template>
 
         <div *ngIf="control.Type == 'checkbox'; else userData">
             <input type="checkbox" id="interested" name="interested" value="interested" [formControlName]="control.ID" checked="false"/>
-            <div *ngIf="registrationForm.get(control.ID)?.touched">
-              <small class="danger" *ngIf="!registrationForm.get(control.ID)?.touched">Please Check the checkbox</small>
-            </div>
             <label class="label" for="interested">{{ control.Label }}</label>
-            
         </div>
         
       </div>

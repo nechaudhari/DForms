@@ -39,4 +39,8 @@ export class RegistrationFormComponent {
     console.log(this.registrationForm);
   }
 
+  onSubmit() {
+    console.log(this.registrationForm.value);
+  }
+
 }
