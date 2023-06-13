@@ -1,0 +1,51 @@
+<!-- <form id="form">
+            <div *ngFor="let control of dynamicFormarray">
+                <div *ngSwitch="control.Type">
+                    <div *ngSwitchCase="'input'">
+                        <label>{{control.Label}}</label>
+                        <input type="text" class="form-control"> 
+                        <div class="form-group">
+                            <label>{{control.Label}}Name</label>
+                        </div>
+                        <div class="col ">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div *ngSwitchCase="'date'">
+                        <label>{{control.Label}}</label>
+                        <input type="date" class="form-control"> 
+                        <div class="col-md-4">
+                            <label>{{control.Label}}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+
+                    <div *ngSwitchCase="'radio'">
+                        <div class="col-md-4">
+                            <label>{{control.Label}}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="radio" *ngFor="let val of control.Value.split(',')">
+                                <input type="radio" name="{{control.ID}}" value="{{val}}">
+                                {{val}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div *ngSwitchCase="'select'">
+                        <div class="col-md-4">
+                            <label>{{control.Label}}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-control">
+                                <option value="-1">Select</option>
+                                <option *ngFor="let val of control.Value.split(',')" value="{{val}}">{{val}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>  
+            </div> 
+    </form>  -->

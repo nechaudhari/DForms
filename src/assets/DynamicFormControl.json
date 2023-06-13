@@ -1,0 +1,31 @@
+[
+    {
+        "ID":"UserName",
+        "Label":"UserName",
+        "Type":"input",
+        "Value":"",
+        "Required":true,
+        "minLength":null,
+        "maxLength":null
+    },
+    {
+        "ID":"Gender",
+        "Label":"Gender",
+        "Type":"select",
+        "Value":["Male","Female"],
+        "Required":false,
+        "minLength":null,
+        "maxLength":null
+    },
+    
+    {
+        "ID":"Interested",
+        "Label":"Are You Interested?",
+        "Type":"checkbox",
+        "Required":false,
+        "Checked":false,
+        "Value":"",
+        "minLength":null,
+        "maxLength":null
+    }
+]
